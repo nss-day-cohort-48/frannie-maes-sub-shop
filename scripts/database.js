@@ -112,8 +112,22 @@ const database = {
             addSideItem: true,
             customerName: "Zelda",
             timestamp: 1619707361509
+        },
+        {
+            id: 2,
+            proteinId: 1,
+            veggieId: 1,
+            toppingId: 1,
+            breadId: 1,
+            addSideItem: true,
+            customerName: "Zelda",
+            timestamp: 1619707361509
         }
     ]
+}
+
+export const getOrders = () => {
+    return [...database.orders]
 }
 
 export const getBreads = () => {

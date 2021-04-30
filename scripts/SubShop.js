@@ -3,6 +3,7 @@ import { BreadHTML } from "./Breads.js"
 import { ProteinHTML } from "./Proteins.js"
 import { VeggieHTML } from "./Veggies.js"
 import { ToppingHTML } from "./Toppings.js"
+import { Orders } from "./Orders.js"
 
 export const SubShop = () => {
     return  `
@@ -25,5 +26,9 @@ export const SubShop = () => {
                 ${ ToppingHTML() }
             </article>
         </div>
+        <article>
+            <h2>Orders Placed</h2>
+            ${ Orders() }
+        </article>
     `
 }
