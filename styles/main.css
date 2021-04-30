@@ -1,0 +1,47 @@
+@import url("https://fonts.googleapis.com/css?family=Comfortaa%7CPatua+One");
+/*Typography
+--------------------------------------------------------------*/
+body,
+button,
+input,
+select,
+textarea {
+	color: #404040;
+	font-family: "Comfortaa", Arial, sans-serif;
+	font-size: 1rem;
+	line-height: 1.5;
+}
+h1,h2,h3,h4,h5,h6 {
+  font-family: "Patua One", serif;
+  letter-spacing: 2px;
+}
+
+ul {
+    list-style: none;
+}
+
+/* .bread--list-item {
+    margin-bottom: 1rem;
+} */
+
+#mainZelda {
+    padding: 1rem;
+}
+
+.choice--list {
+    /* padding-left: .5rem; */
+    padding: 0 0 0 .5rem;
+}
+
+.choice-list-item {
+    margin-bottom: 1rem;
+}
+
+.ingredients--container {
+    display: flex;
+    justify-content: space-around;
+}
+
+.welcome-message {
+    text-align: center;
+}

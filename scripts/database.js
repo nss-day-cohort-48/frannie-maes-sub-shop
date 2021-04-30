@@ -6,6 +6,34 @@ const database = {
             calorieCount: 100,
             isSeasoned: true,
             price: 1.50
+        },
+        {
+            id: 2,
+            type: "Beef",
+            calorieCount: 300,
+            isSeasoned: false,
+            price: 5.50
+        },
+        {
+            id: 3,
+            type: "Prosciutto",
+            calorieCount: 200,
+            isSeasoned: false,
+            price: 3.50
+        },
+        {
+            id: 4,
+            type: "Salami",
+            calorieCount: 100,
+            isSeasoned: true,
+            price: 2.50
+        },
+        {
+            id: 5,
+            type: "Tofu",
+            calorieCount: 100,
+            isSeasoned: true,
+            price: 1.50
         }
     ],
     breads: [
@@ -34,6 +62,12 @@ const database = {
             type: "Guac",
             calorieCount: 130,
             price: 5.50
+        },
+        {
+            id: 2,
+            type: "Sprouts",
+            calorieCount: 30,
+            price: 2.50
         }
     ],
     veggies: [
@@ -42,6 +76,30 @@ const database = {
             type: "Lettuce",
             calorieCount: 3,
             price: .50
+        },
+        {
+            id: 2,
+            type: "Onion",
+            calorieCount: 4,
+            price: .70
+        },
+        {
+            id: 3,
+            type: "Tomato",
+            calorieCount: 3,
+            price: .25
+        },
+        {
+            id: 4,
+            type: "Black Olives",
+            calorieCount: 10,
+            price: .50
+        },
+        {
+            id: 5,
+            type: "Italian Peppers",
+            calorieCount: 7,
+            price: .80
         }
     ],
     orders: [
@@ -60,4 +118,16 @@ const database = {
 
 export const getBreads = () => {
     return [...database.breads]
+}
+
+export const getProteins = () => {
+    return [...database.proteins]
+}
+
+export const getVeggies = () => {
+    return [...database.veggies]
+}
+
+export const getToppings = () => {
+    return [...database.toppings]
 }

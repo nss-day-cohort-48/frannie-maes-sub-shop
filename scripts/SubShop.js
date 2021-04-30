@@ -1,11 +1,29 @@
 // generates all the HTML
 import { BreadHTML } from "./Breads.js"
+import { ProteinHTML } from "./Proteins.js"
+import { VeggieHTML } from "./Veggies.js"
+import { ToppingHTML } from "./Toppings.js"
+
 export const SubShop = () => {
     return  `
-        <h1>Hi! Welcome To Frannie Mae's Sub Shop</h1>
-        <article>
-            <h2>Breads</h2>
-            ${ BreadHTML() }
-        </article>
+        <h1 class="welcome-message">Hi! Welcome To Frannie Mae's Sub Shop</h1>
+        <div class="ingredients--container">
+            <article>
+                <h2>Breads</h2>
+                ${ BreadHTML() }
+            </article>
+            <article>
+                <h2>Proteins</h2>
+                ${ ProteinHTML() }
+            </article>
+            <article>
+                <h2>Veggies</h2>
+                ${ VeggieHTML() }
+            </article>
+            <article>
+                <h2>Toppings</h2>
+                ${ ToppingHTML() }
+            </article>
+        </div>
     `
 }
