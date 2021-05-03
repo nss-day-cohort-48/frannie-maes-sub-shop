@@ -123,7 +123,22 @@ const database = {
             customerName: "Zelda",
             timestamp: 1619707361509
         }
-    ]
+    ],
+    orderBuilder: {}
+}
+
+export const addNewCustomerOrder = () => {
+    //push method to get order object into orders array
+    const newOrder = {...database.orderBuilder}
+
+    newOrder.id = (database.orders.length > 0
+        ? [...database.orders].pop().id + 1
+        : 1)
+
+    newOrder.timestamp = Date.now()
+
+    database.orders.push(newOrder)
+    console.log(database)
 }
 
 export const getOrders = () => {
@@ -144,4 +159,24 @@ export const getVeggies = () => {
 
 export const getToppings = () => {
     return [...database.toppings]
+}
+
+export const setBread = (id) => {
+    database.orderBuilder.breadId = id
+    console.log(database)
+}
+
+export const setProtein = (id) => {
+    database.orderBuilder.proteinId = id
+    console.log(database)
+}
+
+export const setTopping = (id) => {
+    database.orderBuilder.toppingId = id
+    console.log(database)
+}
+
+export const setVeggie = (id) => {
+    database.orderBuilder.veggieId = id
+    console.log(database)
 }

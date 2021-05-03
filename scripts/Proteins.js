@@ -1,7 +1,18 @@
 // radio button list of all Proteins in database
-import { getProteins } from "./database.js"
+import { getProteins, setProtein } from "./database.js"
 
 const proteins = getProteins()
+
+document.addEventListener(
+    "change",
+    (changeEvent) => {
+        if(changeEvent.target.name === "protein") {
+            const [prompt, proteinId] = changeEvent.target.value.split("--")
+
+            setProtein(parseInt(proteinId))
+        }
+    }
+)
 
 export const ProteinHTML = () => {
 

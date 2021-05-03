@@ -1,7 +1,18 @@
 // radio button list of all Veggies in database
-import { getVeggies } from "./database.js"
+import { getVeggies, setVeggie } from "./database.js"
 
 const veggies = getVeggies()
+
+document.addEventListener(
+    "change",
+    (changeEvent) => {
+        if(changeEvent.target.name === "veggie") {
+            const [, veggieId] = changeEvent.target.value.split("--")
+
+            setVeggie(parseInt(veggieId))
+        }
+    }
+)
 
 export const VeggieHTML = () => {
 
