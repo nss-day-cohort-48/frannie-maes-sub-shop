@@ -15,6 +15,6 @@ document.addEventListener(
 
 export const SubmitOrderButton = () => {
     return `
-        <button id="submitOrderButton">Submit</button>
+        <button id="submitOrderButton">Submit Order</button>
     `
 }

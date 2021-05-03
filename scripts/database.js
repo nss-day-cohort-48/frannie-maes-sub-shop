@@ -105,8 +105,8 @@ const database = {
   orders: [
     {
       id: 1,
-      proteinId: 1,
-      veggieId: 1,
+      proteinId: 2,
+      veggieId: 5,
       toppingId: 1,
       breadId: 1,
       addSideItem: true,
@@ -115,21 +115,20 @@ const database = {
     },
     {
       id: 2,
-      proteinId: 1,
+      proteinId: 5,
       veggieId: 1,
-      toppingId: 1,
-      breadId: 1,
-      addSideItem: true,
-      customerName: "Zelda",
-      timestamp: 1619707361509,
+      toppingId: 2,
+      breadId: 3,
+      addSideItem: false,
+      customerName: "Link",
+      timestamp: 1620059468223,
     },
   ],
   orderBuilder: {},
 }
 
 export const addNewCustomerOrder = () => {
-    // Check to see if the orderBuilder object has all properties necessary to complete an order
-    // before adding that order to the orders array
+    // Check to see if the orderBuilder object has all the necessary properties
   if (
     "proteinId" in database.orderBuilder &&
     "veggieId" in database.orderBuilder &&
@@ -137,36 +136,40 @@ export const addNewCustomerOrder = () => {
     "breadId" in database.orderBuilder
   ) {
       // creating a copy of the orderBuilder object and storing that object in the newOrder variable
-    const newOrder = { ...database.orderBuilder }
+        const newOrder = { ...database.orderBuilder }
 
-    //* This is a ternary statement
-    // check if there are any existing orders in the orders array
-    // if there are orders already, set the value of newOrder.id equal to the value of the last object's id + 1
-    // if it's empty set newOrder.id equal to 1
-    newOrder.id =
-      database.orders.length > 0 ? [...database.orders].pop().id + 1 : 1
+        //* Use ternary statement to conditionally set the value of newOrder.id...
+        // Are there any existing order objects in the orders array?
+        newOrder.id = database.orders.length > 0
+        // Yes? (length of orders array is greater than 0)
+        // ---- Get the value of id of the the last order object from orders array.
+        // ---- Set the newOrder.id equal to that value + one
+        ? [...database.orders].pop().id + 1
+        // No? (length of orders array is 0)
+        // ---- Set newOrder.id equal to 1
+        : 1
 
-    //* This is the if..else way of writing the conditional logic above
-    // if(database.orders.length > 0){
-    //     newOrder.id = [...database.orders].pop().id + 1
-    // } else {
-    //     newOrder.id = 1
-    // }
+        //* This is the if..else way of writing the conditional logic above
+        // if(database.orders.length > 0){
+        //     newOrder.id = [...database.orders].pop().id + 1
+        // } else {
+        //     newOrder.id = 1
+        // }
 
-    // assigning the value of the newOrder.timestamp property to the current timestamp
-    newOrder.timestamp = Date.now()
+        // assigning the value of the newOrder.timestamp property to the current timestamp
+        newOrder.timestamp = Date.now()
 
-    // push the newOrder object into the orders array
-    database.orders.push(newOrder)
+        // push the newOrder object into the orders array
+        database.orders.push(newOrder)
 
-    // set the value of orderBuilder to an empty object
-    database.orderBuilder = {}
+        // set the value of orderBuilder to an empty object
+        database.orderBuilder = {}
 
-    // announce to the rest of the application that the state of our orders array has changed
-    document.dispatchEvent(new CustomEvent("ordersStateHasChanged") )
+        // announce to the rest of the application that the state of our orders array has changed
+        document.dispatchEvent(new CustomEvent("ordersStateHasChanged") )
 
-    // returning true when all properties exists
-    return true
+        // returning true when all properties exists
+        return true
   }
   // returning false when there are missing properties ( user must complete selection )
   return false
@@ -195,20 +198,16 @@ export const getToppings = () => {
 
 export const setBread = (id) => {
   database.orderBuilder.breadId = id
-  console.log(database)
 }
 
 export const setProtein = (id) => {
   database.orderBuilder.proteinId = id
-  console.log(database)
 }
 
 export const setTopping = (id) => {
   database.orderBuilder.toppingId = id
-  console.log(database)
 }
 
 export const setVeggie = (id) => {
   database.orderBuilder.veggieId = id
-  console.log(database)
 }
