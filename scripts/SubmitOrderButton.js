@@ -4,10 +4,15 @@ document.addEventListener(
     "click",
     (clickEvent) => {
         if(clickEvent.target.id === "submitOrderButton"){
-            addNewCustomerOrder()
+            const customerOrderSuccess = addNewCustomerOrder()
+
+            if(!customerOrderSuccess){
+                window.alert("Your order is incomplete! Please choose from all options.")
+            }
         }
     }
 )
+
 export const SubmitOrderButton = () => {
     return `
         <button id="submitOrderButton">Submit</button>

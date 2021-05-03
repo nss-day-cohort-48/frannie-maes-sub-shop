@@ -8,3 +8,10 @@ const renderHTML = () => {
 }
 
 renderHTML()
+
+document.addEventListener(
+    "ordersStateHasChanged",
+    () => {
+        renderHTML()
+    }
+)

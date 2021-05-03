@@ -1,11 +1,14 @@
 // radio button list of all Veggies in database
 import { getBreads, getOrders, getProteins } from "./database.js"
 
-const orders = getOrders()
+console.log("Orders module initialized...")
 const proteins = getProteins()
 const breads = getBreads()
 
 export const Orders = () => {
+    console.log("Orders function invoked...")
+
+    const orders = getOrders()
 
     const arrayOfOrderHTMLStrings = orders.map(
         (order) => {
@@ -25,7 +28,7 @@ export const Orders = () => {
             // Return the HTML representation of the order
             return `
                 <div class="order">
-                    Order #${order.id} has the protein of ${foundProtein.type} on a ${foundBread.type} bread
+                    Order #${order.id} placed at ${new Date(order.timestamp).toLocaleString()}, has the protein of ${foundProtein.type} on a ${foundBread.type} bread
                 </div>
             `
         }
