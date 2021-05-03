@@ -128,12 +128,19 @@ const database = {
 }
 
 export const addNewCustomerOrder = () => {
-    //push method to get order object into orders array
     const newOrder = {...database.orderBuilder}
 
-    newOrder.id = (database.orders.length > 0
+    //* This is a ternary statement 
+    newOrder.id = database.orders.length > 0
         ? [...database.orders].pop().id + 1
-        : 1)
+        : 1
+
+    //* This is the if..else way of writing the conditional logic above
+    // if(database.orders.length > 0){
+    //     newOrder.id = [...database.orders].pop().id + 1
+    // } else {
+    //     newOrder.id = 1
+    // }
 
     newOrder.timestamp = Date.now()
 
