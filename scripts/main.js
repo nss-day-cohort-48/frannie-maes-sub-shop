@@ -10,7 +10,7 @@ const renderHTML = () => {
 renderHTML()
 
 document.addEventListener(
-    "ordersStateHasChanged",
+    "stateHasChanged",
     () => {
         renderHTML()
     }

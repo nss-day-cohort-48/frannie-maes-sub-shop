@@ -1,6 +1,6 @@
 import { setSideItem } from "./database.js"
 
-let checkboxState = false;
+let checkboxState = false
 
 document.addEventListener(
     "change",

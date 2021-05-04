@@ -166,7 +166,7 @@ export const addNewCustomerOrder = () => {
         database.orderBuilder = {}
 
         // announce to the rest of the application that the state of our orders array has changed
-        document.dispatchEvent(new CustomEvent("ordersStateHasChanged") )
+        document.dispatchEvent(new CustomEvent("stateHasChanged") )
 
         // returning true when all properties exists
         return true
@@ -214,5 +214,6 @@ export const setVeggie = (id) => {
 
 export const setSideItem = (isChecked) => {
     database.orderBuilder.addSideItem = isChecked
+    document.dispatchEvent(new CustomEvent("stateHasChanged") )
     console.log(database.orderBuilder)
 }
