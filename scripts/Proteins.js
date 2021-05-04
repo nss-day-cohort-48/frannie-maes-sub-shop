@@ -20,7 +20,9 @@ export const ProteinHTML = () => {
 
     for (const protein of proteins) {
         html += `<li class="choice-list-item protein--list-item">
-        <input type="radio" value="protein--${protein.id}" name="protein"> ${protein.type} $${protein.price.toFixed(2)}
+        <input type="radio" value="protein--${protein.id}" name="protein"> ${protein.type}
+        
+        <div class="price">Price: $${protein.price.toFixed(2)}</div>
         </li>`
     }
 

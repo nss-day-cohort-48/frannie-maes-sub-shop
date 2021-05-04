@@ -35,6 +35,9 @@ ul {
 
 .choice-list-item {
     margin-bottom: 1rem;
+    border: 1px solid black;
+    border-radius: .25rem;
+    padding: .5rem .75rem;
 }
 
 .ingredients--container {
@@ -44,4 +47,12 @@ ul {
 
 .welcome-message {
     text-align: center;
+}
+
+.img--salt-icon {
+    max-width: 1rem;
+}
+
+.price {
+    font-size: small;
 }

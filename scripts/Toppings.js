@@ -19,7 +19,8 @@ export const ToppingHTML = () => {
 
     for (const topping of toppings) {
         html += `<li class="choice-list-item topping--list-item">
-        <input type="radio" value="topping--${topping.id}" name="topping"> ${topping.type} $${topping.price.toFixed(2)}
+        <input type="radio" value="topping--${topping.id}" name="topping"> ${topping.type}
+        <div class="price">Price: $${topping.price.toFixed(2)}</div>
         </li>`
     }
 

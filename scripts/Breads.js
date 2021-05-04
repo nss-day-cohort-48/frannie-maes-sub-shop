@@ -19,7 +19,8 @@ export const BreadHTML = () => {
 
     for (const bread of breads) {
         html += `<li class="choice-list-item bread--list-item">
-        <input type="radio" value="bread--${bread.id}" name="bread"> ${bread.type} $${bread.price.toFixed(2)}
+        <input type="radio" value="bread--${bread.id}" name="bread"> ${bread.type}
+        <div class="price">Price: $${bread.price.toFixed(2)}</div>
         </li>`
     }
 

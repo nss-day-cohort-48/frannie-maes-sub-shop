@@ -22,7 +22,8 @@ export const VeggieHTML = () => {
         (currentVeggie) => {
             return `<li class="choice-list-item veggie--list-item">
             <input type="radio" value="veggie--${currentVeggie.id}" name="veggie">
-                ${currentVeggie.type} $${currentVeggie.price.toFixed(2)}
+                ${currentVeggie.type}
+                <div class="price">Price: $${currentVeggie.price.toFixed(2)}</div>
             </li>`
         }
     )
