@@ -5,6 +5,7 @@ import { VeggieHTML } from "./Veggies.js"
 import { ToppingHTML } from "./Toppings.js"
 import { Orders } from "./Orders.js"
 import { SubmitOrderButton } from "./SubmitOrderButton.js"
+import { SideItemCheckbox } from "./SideItem.js"
 export const SubShop = () => {
     return  `
         <h1 class="welcome-message">Hi! Welcome To Frannie Mae's Sub Shop</h1>
@@ -26,6 +27,9 @@ export const SubShop = () => {
                 ${ ToppingHTML() }
             </article>
         </div>
+        <article>
+            ${ SideItemCheckbox() }
+        </article>
         ${ SubmitOrderButton() }
         <article>
             <h2>Orders Placed</h2>

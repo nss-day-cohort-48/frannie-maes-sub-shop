@@ -211,3 +211,8 @@ export const setTopping = (id) => {
 export const setVeggie = (id) => {
   database.orderBuilder.veggieId = id
 }
+
+export const setSideItem = (isChecked) => {
+    database.orderBuilder.addSideItem = isChecked
+    console.log(database.orderBuilder)
+}
