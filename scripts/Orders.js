@@ -1,9 +1,11 @@
 // radio button list of all Veggies in database
-import { getBreads, getOrders, getProteins } from "./database.js"
+import { getBreads, getOrders, getProteins, getToppings, getVeggies } from "./database.js"
 
 console.log("Orders module initialized...")
 const proteins = getProteins()
 const breads = getBreads()
+const toppings = getToppings()
+const veggies = getVeggies()
 
 export const Orders = () => {
     console.log("Orders function invoked...")
@@ -12,6 +14,7 @@ export const Orders = () => {
 
     const arrayOfOrderHTMLStrings = orders.map(
         (order) => {
+            let totalCost = 0
 
             // Find the matching protein
             const foundProtein = proteins.find(
@@ -21,14 +24,29 @@ export const Orders = () => {
                     }
                 }
             )
+            totalCost += foundProtein.price
 
             // Find the matching bread
             const foundBread = breads.find( b => b.id === order.breadId )
+            totalCost += foundBread.price
+
+            const foundVeggie = veggies.find( v => v.id === order.veggieId )
+            totalCost += foundVeggie.price
+
+            const foundTopping = toppings.find( t => t.id === order.toppingId )
+            totalCost += foundTopping.price
 
             // Return the HTML representation of the order
             return `
                 <div class="order">
-                    Order #${order.id} placed at ${new Date(order.timestamp).toLocaleString()}, has the protein of ${foundProtein.type} on a ${foundBread.type} bread
+                    Order #${order.id} placed at
+                    ${new Date(order.timestamp).toLocaleString()},
+                    has the protein of ${foundProtein.type}
+                    on a ${foundBread.type} bread
+                    for a cost of ${totalCost.toLocaleString("en-US", {
+                        style: "currency",
+                        currency: "USD"
+                    })}
                 </div>
             `
         }
