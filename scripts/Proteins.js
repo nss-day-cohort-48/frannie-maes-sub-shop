@@ -19,10 +19,11 @@ export const ProteinHTML = () => {
     let html = "<ul class='choice--list protein--list'>"
 
     for (const protein of proteins) {
+
         html += `<li class="choice-list-item protein--list-item">
-        <input type="radio" value="protein--${protein.id}" name="protein"> ${protein.type}
-        
-        <div class="price">Price: $${protein.price.toFixed(2)}</div>
+            <input type="radio" value="protein--${protein.id}" name="protein"> ${protein.type}
+            ${ protein.isSeasoned ? "🔥" : "" }
+            <div class="price">Price: $${protein.price.toFixed(2)}</div>
         </li>`
     }
 
