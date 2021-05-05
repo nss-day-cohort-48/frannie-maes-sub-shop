@@ -1,11 +1,12 @@
 // radio button list of all Veggies in database
-import { getBreads, getOrders, getProteins, getToppings, getVeggies } from "./database.js"
+import { getBreads, getOrders, getProteins, getToppings, getVeggies, getOrderToppings } from "./database.js"
 
 console.log("Orders module initialized...")
 const proteins = getProteins()
 const breads = getBreads()
 const toppings = getToppings()
 const veggies = getVeggies()
+const orderToppings = getOrderToppings()
 
 export const Orders = () => {
     console.log("Orders function invoked...")
@@ -33,8 +34,19 @@ export const Orders = () => {
             const foundVeggie = veggies.find( v => v.id === order.veggieId )
             totalCost += foundVeggie.price
 
-            const foundTopping = toppings.find( t => t.id === order.toppingId )
-            totalCost += foundTopping.price
+            const foundOrderToppings = orderToppings.filter( orderTopping => {
+                return orderTopping.orderId === order.id
+            })
+
+            const foundToppings = foundOrderToppings.map(foundOrderTopping => {
+                const foundTopping = toppings.find(topping => {
+                    return topping.id === foundOrderTopping.toppingId
+                })
+
+                return foundTopping
+            })
+            debugger
+            // totalCost += foundTopping.price
 
             // Return the HTML representation of the order
             return `

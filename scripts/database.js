@@ -107,7 +107,6 @@ const database = {
       id: 1,
       proteinId: 2,
       veggieId: 5,
-      toppingId: 1,
       breadId: 1,
       addSideItem: true,
       customerName: "Zelda",
@@ -117,14 +116,39 @@ const database = {
       id: 2,
       proteinId: 5,
       veggieId: 1,
-      toppingId: 2,
       breadId: 3,
       addSideItem: false,
       customerName: "Link",
       timestamp: 1620059468223,
     },
   ],
+  orderToppings: [
+      {
+        id: 1,
+        toppingId: 1,
+        orderId: 1,
+      },
+      {
+        id: 2,
+        toppingId:2,
+        orderId: 1,
+      },
+      {
+        id: 3,
+        toppingId: 1,
+        orderId: 2,
+      },
+      {
+        id: 4,
+        toppingId:2,
+        orderId: 2,
+      }
+  ],
   orderBuilder: {},
+}
+
+export const getOrderToppings = () =>{
+    return [...database.orderToppings]
 }
 
 export const addNewCustomerOrder = () => {
@@ -166,8 +190,9 @@ export const addNewCustomerOrder = () => {
         database.orderBuilder = {}
 
         // announce to the rest of the application that the state of our orders array has changed
-        document.dispatchEvent(new CustomEvent("stateHasChanged") )
+        document.dispatchEvent(new CustomEvent("stateHasChanged"))
 
+        console.log(database.orders)
         // returning true when all properties exists
         return true
   }
