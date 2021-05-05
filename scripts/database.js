@@ -137,11 +137,6 @@ const database = {
         id: 3,
         toppingId: 1,
         orderId: 2,
-      },
-      {
-        id: 4,
-        toppingId:2,
-        orderId: 2,
       }
   ],
   orderBuilder: {},

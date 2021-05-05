@@ -45,7 +45,7 @@ export const Orders = () => {
 
                 return foundTopping
             })
-            debugger
+            // debugger
             // totalCost += foundTopping.price
 
             // Return the HTML representation of the order
@@ -58,7 +58,11 @@ export const Orders = () => {
                     for a cost of ${totalCost.toLocaleString("en-US", {
                         style: "currency",
                         currency: "USD"
-                    })}
+                    })} with the toppings
+                    ${foundToppings.map(foundTopping => {
+                        return `${foundTopping.type}`
+                    }).join(", ")}
+
                 </div>
             `
         }
