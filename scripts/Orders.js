@@ -6,10 +6,10 @@ const proteins = getProteins()
 const breads = getBreads()
 const toppings = getToppings()
 const veggies = getVeggies()
-const orderToppings = getOrderToppings()
 
 export const Orders = () => {
     console.log("Orders function invoked...")
+    const orderToppings = getOrderToppings()
 
     const orders = getOrders()
 
@@ -28,13 +28,13 @@ export const Orders = () => {
             totalCost += foundProtein.price
 
             // Find the matching bread
-            const foundBread = breads.find( b => b.id === order.breadId )
+            const foundBread = breads.find(b => b.id === order.breadId)
             totalCost += foundBread.price
 
-            const foundVeggie = veggies.find( v => v.id === order.veggieId )
+            const foundVeggie = veggies.find(v => v.id === order.veggieId)
             totalCost += foundVeggie.price
 
-            const foundOrderToppings = orderToppings.filter( orderTopping => {
+            const foundOrderToppings = orderToppings.filter(orderTopping => {
                 return orderTopping.orderId === order.id
             })
 
@@ -45,8 +45,7 @@ export const Orders = () => {
 
                 return foundTopping
             })
-            // debugger
-            // totalCost += foundTopping.price
+
 
             // Return the HTML representation of the order
             return `
@@ -56,12 +55,12 @@ export const Orders = () => {
                     has the protein of ${foundProtein.type}
                     on a ${foundBread.type} bread
                     for a cost of ${totalCost.toLocaleString("en-US", {
-                        style: "currency",
-                        currency: "USD"
-                    })} with the toppings
+                style: "currency",
+                currency: "USD"
+            })} with the toppings
                     ${foundToppings.map(foundTopping => {
-                        return `${foundTopping.type}`
-                    }).join(", ")}
+                return `${foundTopping.type}`
+            }).join(", ")}
 
                 </div>
             `
